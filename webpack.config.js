@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 const HtmlWebpackPlugin = require('vue-html-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
   mode: 'development',
@@ -13,17 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
-          }
-          // other vue-loader options go here
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.tsx?$/,
@@ -55,7 +46,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     // noInfo: true
-    port: 8081
+    port: 8000
   },
   performance: {
     hints: false
@@ -64,7 +55,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       vue: true
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 }
 

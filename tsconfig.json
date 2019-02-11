@@ -9,7 +9,13 @@
         "target": "es5",
         "experimentalDecorators": true,
         "charset": "utf8", // 입력파일의 문자집합 형식
-    "emitBOM": true,
+        "emitBOM": true,
+        "baseUrl": "src",
+        "paths": {
+            "@posts/*": [
+                "posts/*"
+            ]
+        }
     },
     "include": [
         "./src/**/*"

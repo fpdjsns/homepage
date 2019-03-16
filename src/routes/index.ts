@@ -13,7 +13,7 @@ export const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: Product
+            redirect: '/todo'
         },
         {
             path: '/todo',

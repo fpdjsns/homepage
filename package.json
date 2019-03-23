@@ -4,7 +4,7 @@
   "description": "typescript + vue.js + webpack",
   "main": "index.ts",
   "scripts": {
-    "dev": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open --mode=development ",
     "build-dev": "webpack --mode=development",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +30,7 @@
     "webpack": "^4.25.1"
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "vue-html-webpack-plugin": "^3.2.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"

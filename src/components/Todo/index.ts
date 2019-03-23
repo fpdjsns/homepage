@@ -27,6 +27,7 @@ export default class Todo extends Vue {
     //     new TodoItem("아침","이제자라")
     // ];
     created() {
+        console.log(process.env.NOW);
         this.$store.dispatch('todo/getTodos');
     }
 

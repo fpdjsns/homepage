@@ -68,7 +68,8 @@ module.exports = (env, options) => {
     devtool: '#eval-source-map',
     plugins: [
       new HtmlWebpackPlugin({
-        vue: true
+        vue: true,
+        favicon: 'favicon.png'
       }),
       new webpack.DefinePlugin({
         'process.env': JSON.stringify(process.env)
@@ -83,6 +84,10 @@ module.exports = (env, options) => {
       new webpack.DefinePlugin({
         'process.env': JSON.stringify(process.env)
       }),
+      new HtmlWebpackPlugin({
+        vue: true,
+        favicon: 'favicon.png'
+      }),  
       // new webpack.optimize.UglifyJsPlugin({
       //   sourceMap: true,
       //   compress: {

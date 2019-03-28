@@ -1,8 +1,25 @@
 <div>
     TODO 리스트
-    <ul>
-        <li v-for="item in todos">
-            name : {{ item.name }} / todo : {{item.todo}}
-        </li>
-    </ul>
+
+    <table>
+        <thead :style="styleThead">
+            <tr>
+                <th>
+                    <input type="checkbox">
+                    </label>
+                </th>
+                <th>name</th>
+                <th>todo</th>
+            </tr>
+        </thead>
+        <tbody :style="styleTbody">
+            <tr v-for="item in todos">
+                <td>
+                    <input type="checkbox" :value="item.name">
+                </td>
+                <td>{{item.name}}</td>
+                <td>{{item.todo}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

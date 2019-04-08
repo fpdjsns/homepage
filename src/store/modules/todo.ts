@@ -4,10 +4,12 @@ import { googleSpreadSheetApi } from '../../api';
 export const namespaced = true;
 
 export class TodoItem {
+    id: number = 0;
     name: string = '';
     todo: string = '';
 
-    constructor(name: string, todo: string) {
+    constructor(id: number, name: string, todo: string) {
+        this.id = id;
         this.name = name;
         this.todo = todo;
     }
@@ -31,7 +33,7 @@ export const mutations = {
     SET_TODO(state: State, todos: string[]) {
         todos.forEach((todo, index) => {
             if (index == 0) return;
-            state.todos.push(new TodoItem(todo[0], todo[1]));
+            state.todos.push(new TodoItem(Number(todo[0]), todo[1], todo[2]));
         });
     }
 };

@@ -1,7 +1,7 @@
 <div>
     TODO 리스트
 
-    <table>
+    <table class="table" :style="styleTable">
         <thead :style="styleThead">
             <tr>
                 <th>
@@ -14,11 +14,17 @@
         <tbody :style="styleTbody">
             <tr v-for="item in todos">
                 <td>
-                    <input type="checkbox" :value="item.name">
+                    <input type="checkbox" :value="item.id">
                 </td>
                 <td>{{item.name}}</td>
                 <td>{{item.todo}}</td>
             </tr>
         </tbody>
     </table>
+
+    <!-- <style>
+        .table th, .table td {
+            border: 5px
+        }
+    </style> -->
 </div>

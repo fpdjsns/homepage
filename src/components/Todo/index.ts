@@ -14,12 +14,25 @@ export default class Todo extends Vue {
     }
 
     // Style
+    styleTable: object = {
+        borderCollapse: 'collapse',
+        padding: '10px',
+        border: '2px solid #ddd',
+        borderTop: '3px solid #fb7399',
+    }
+
     styleThead: object = {
-        color: 'red'
+        color: '#fb7399',
+        background: '#f7e6ec',
+        textAlign: 'center',
     }
 
     styleTbody: object = {
-        color: 'blue'
+        color: '#0094D7'
+    }
+
+    styleTh: object = {
+        padding: '5px',
     }
 
 }

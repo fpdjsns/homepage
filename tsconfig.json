@@ -13,6 +13,9 @@
         "paths": {
             "@api/*": [
                 "api/*"
+            ],
+            "@store/*":[
+                "store/*"
             ]
         },
         "emitBOM": true,

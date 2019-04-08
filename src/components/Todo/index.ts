@@ -1,16 +1,26 @@
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { mapState, mapActions } from "../../../node_modules/vuex";
+import { Vue, Component } from "vue-property-decorator";
+import { mapState } from "../../../node_modules/vuex";
+import { TodoItem } from "../../store/modules/todo"
 
 @Component({
     template: require('./Todo.html'),
     computed: {
         ...mapState('todo', ['todos'])
-    },
+    }
 })
 export default class Todo extends Vue {
+
+    name: string = '';
+    todo: string = '';
+
     created() {
         console.log(process.env.NOW);
         this.$store.dispatch('todo/getTodos');
+    }
+
+    addTodo() {
+        this.$store.dispatch('todo/addTodo', new TodoItem(this.name, this.todo));
+        this.name = ''; this.todo = '';
     }
 
     // Style

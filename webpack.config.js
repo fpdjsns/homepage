@@ -54,7 +54,8 @@ module.exports = (env, options) => {
     resolve: {
       extensions: ['.ts', '.js', '.vue', '.json'],
       alias: {
-        'vue$': 'vue/dist/vue.esm.js'
+        'vue$': 'vue/dist/vue.esm.js',
+        '@api': path.resolve(__dirname, 'src/api'),
       }
     },
     devServer: {
@@ -69,7 +70,8 @@ module.exports = (env, options) => {
     plugins: [
       new HtmlWebpackPlugin({
         vue: true,
-        favicon: 'favicon.png'
+        favicon: 'favicon.png',
+        template: 'src/index.html'
       }),
       new webpack.DefinePlugin({
         'process.env': JSON.stringify(process.env)
@@ -86,7 +88,8 @@ module.exports = (env, options) => {
       }),
       new HtmlWebpackPlugin({
         vue: true,
-        favicon: 'favicon.png'
+        favicon: 'favicon.png',
+        template: 'src/index.html'
       }),  
       // new webpack.optimize.UglifyJsPlugin({
       //   sourceMap: true,

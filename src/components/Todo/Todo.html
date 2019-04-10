@@ -1,6 +1,14 @@
 <div>
     TODO 리스트
 
+    <!-- google login -->
+    <g-signin-button :style="gSigninButton"
+        :params="googleSignInParams"
+        @success="onSignInSuccess"
+        @error="onSignInError">
+        Sign in with Google
+    </g-signin-button>
+
     <input v-model="name" placeholder="name">
     <input v-model="todo" placeholder="todo">
     <button @click = "addTodo()">추가해라</button>

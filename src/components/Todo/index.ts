@@ -1,17 +1,32 @@
 import { Vue, Component } from "vue-property-decorator";
 import { mapState } from "../../../node_modules/vuex";
 import { TodoItem } from "../../store/modules/todo"
+import { config } from "@api/apiConfig";
 
 @Component({
     template: require('./Todo.html'),
     computed: {
         ...mapState('todo', ['todos'])
-    }
+    },
 })
 export default class Todo extends Vue {
 
     name: string = '';
     todo: string = '';
+
+    googleSignInParams: any = {
+        client_id: config.googleClientId
+    }
+
+    onSignInSuccess(googleUser: any) {
+        const profile = googleUser.getBasicProfile() // etc etc
+        console.log("login success")
+        console.log(profile)
+    }
+
+    onSignInError(error: any) {
+        console.log(error)
+    }
 
     created() {
         console.log(process.env.NOW);
@@ -43,6 +58,12 @@ export default class Todo extends Vue {
 
     styleTh: object = {
         padding: '5px',
+    }
+
+    gSigninButton: object = {
+        borderRadius: '3px',
+        backgroundColor: '#fb7399',
+        color: '#fff',
     }
 
 }
